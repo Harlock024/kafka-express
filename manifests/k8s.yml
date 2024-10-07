@@ -15,10 +15,9 @@ spec:
     spec:
       containers:
       - name: kafka-express-container
-        #image: gcr.io/tensorflow-serving/resnet 
-        image: docker.io/harlock024/kafka-express:latest
+        image: docker.io/harlock024/kafka-express:c0f4c2c2b4d217d30c1c2e8584ba968049c79935
         ports:
-        - containerPort: 8080
+        - containerPort: 8888
 ---
 apiVersion: v1
 kind: Service
@@ -28,8 +27,8 @@ metadata:
   name: kafka-express-service
 spec:
   ports:
-  - port: 8080
-    targetPort: 8080
+  - port: 8888
+    targetPort: 8888
     nodePort: 30080
   selector:
     app: kafka-express-server
